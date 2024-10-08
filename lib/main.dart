@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wendys_test/presentation/pages/categories/categories_page.dart';
 
 import 'dependency_injection.dart' as dependency_injection;
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      home: Placeholder(),
+      home: CategoriesPage(),
     );
   }
 }
