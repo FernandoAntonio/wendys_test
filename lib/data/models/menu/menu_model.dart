@@ -6,9 +6,17 @@ part 'menu_model.g.dart';
 
 @freezed
 class MenuModel with _$MenuModel {
+  MenuModel._();
+
   const factory MenuModel({
     required MenuListsModel menuLists,
   }) = _MenuModel;
+
+  factory MenuModel.empty() {
+    return MenuModel(
+      menuLists: MenuListsModel.empty(),
+    );
+  }
 
   factory MenuModel.fromJson(Map<String, dynamic> json) => _$MenuModelFromJson(json);
 }
