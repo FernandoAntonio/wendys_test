@@ -12,7 +12,7 @@ abstract interface class IMenuRemoteDatasource {
 class MenuRemoteDatasource implements IMenuRemoteDatasource {
   final IHttpClient _client;
 
-  MenuRemoteDatasource({
+  const MenuRemoteDatasource({
     required IHttpClient client,
   }) : _client = client;
 
