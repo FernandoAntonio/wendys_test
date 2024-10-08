@@ -6,7 +6,7 @@ part 'menu_lists_model.g.dart';
 
 @freezed
 class MenuListsModel with _$MenuListsModel {
-  MenuListsModel._();
+  const MenuListsModel._();
 
   const factory MenuListsModel({
     // ignore: invalid_annotation_target

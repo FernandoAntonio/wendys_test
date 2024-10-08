@@ -6,7 +6,7 @@ part 'menu_model.g.dart';
 
 @freezed
 class MenuModel with _$MenuModel {
-  MenuModel._();
+  const MenuModel._();
 
   const factory MenuModel({
     required MenuListsModel menuLists,
