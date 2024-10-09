@@ -1,3 +1,4 @@
+import 'package:http/http.dart' as http;
 import 'package:wendys_test/core/network/http_client/entities/http_options.dart';
 import 'package:wendys_test/core/network/http_client/http_client.dart';
 import 'package:wendys_test/dependency_injection.dart';
@@ -9,6 +10,7 @@ Future<void> initCoreDependencies() async {
         baseUrl: 'api.app.tst.wendys.digital',
         requestTimeout: const Duration(seconds: 30),
       ),
+      httpClient: http.Client(),
     ),
   );
 }

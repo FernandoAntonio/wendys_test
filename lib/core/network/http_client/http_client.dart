@@ -16,11 +16,12 @@ abstract interface class IHttpClient {
 }
 
 class DefaultHttpClient extends IHttpClient {
-  http.Client? httpClient;
+  final http.Client _httpClient;
 
-  DefaultHttpClient(super.options, {this.httpClient}) {
-    httpClient ??= http.Client();
-  }
+  DefaultHttpClient(
+    super.options, {
+    required http.Client httpClient,
+  }) : _httpClient = httpClient;
 
   @override
   Future<HttpResponse> sendRequest(HttpRequest request) async {
@@ -31,11 +32,11 @@ class DefaultHttpClient extends IHttpClient {
     );
 
     final Map<HttpMethod, Future Function()> handlers = {
-      HttpMethod.get: () => httpClient!.get(uri),
-      HttpMethod.post: () => httpClient!.post(uri, body: request.body),
-      HttpMethod.put: () => httpClient!.put(uri, body: request.body),
-      HttpMethod.patch: () => httpClient!.patch(uri, body: request.body),
-      HttpMethod.delete: () => httpClient!.delete(uri, body: request.body),
+      HttpMethod.get: () => _httpClient.get(uri),
+      HttpMethod.post: () => _httpClient.post(uri, body: request.body),
+      HttpMethod.put: () => _httpClient.put(uri, body: request.body),
+      HttpMethod.patch: () => _httpClient.patch(uri, body: request.body),
+      HttpMethod.delete: () => _httpClient.delete(uri, body: request.body),
     };
 
     try {
