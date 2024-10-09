@@ -4,6 +4,7 @@ import 'package:wendys_test/data/models/category/category_model.dart';
 import 'package:wendys_test/dependency_injection.dart';
 import 'package:wendys_test/presentation/cubit/categories/categories_cubit.dart';
 import 'package:wendys_test/presentation/pages/menu_items/menu_items_page.dart';
+import 'package:wendys_test/presentation/pages/widgets/cart_widget.dart';
 import 'package:wendys_test/presentation/pages/widgets/menu_item_widget.dart';
 
 class CategoriesPage extends StatefulWidget {
@@ -38,6 +39,9 @@ class _CategoriesPageState extends State<CategoriesPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Categories Page'),
+          actions: [
+            CartWidget(),
+          ],
         ),
         body: BlocBuilder<CategoriesCubit, CategoriesState>(
           builder: (context, state) {

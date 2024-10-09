@@ -5,6 +5,7 @@ import 'package:wendys_test/data/models/menu_item/menu_item_model.dart';
 import 'package:wendys_test/dependency_injection.dart';
 import 'package:wendys_test/presentation/cubit/menu_items/menu_items_cubit.dart';
 import 'package:wendys_test/presentation/pages/selected_menu_item/selected_menu_item_page.dart';
+import 'package:wendys_test/presentation/pages/widgets/cart_widget.dart';
 import 'package:wendys_test/presentation/pages/widgets/menu_item_widget.dart';
 
 class MenuItemsPage extends StatefulWidget {
@@ -47,6 +48,9 @@ class _MenuItemsPageState extends State<MenuItemsPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(widget.selectedCategory.displayName),
+          actions: [
+            CartWidget(),
+          ],
         ),
         body: BlocBuilder<MenuItemsCubit, MenuItemsState>(
           builder: (context, state) {
