@@ -15,9 +15,10 @@ class MenuItemsCubit extends Cubit<MenuItemsState> {
         super(MenuItemsState.initial());
 
   Future<void> getMenuItemsById(List<int> menuItemsIds) async {
-    if (!state.isLoading) {
-      final (menuItems, error) = await _getMenuItemsByIdUseCase(menuItemsIds);
-      emit(state.copyWith(menuItems: menuItems));
-    }
+    emit(state.copyWith(isLoading: true));
+
+    final (menuItems, error) = await _getMenuItemsByIdUseCase(menuItemsIds);
+
+    emit(state.copyWith(menuItems: menuItems, isLoading: false));
   }
 }
