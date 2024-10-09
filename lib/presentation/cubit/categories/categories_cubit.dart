@@ -15,7 +15,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
   })  : _getCategoriesUseCase = getCategoriesUseCase,
         super(CategoriesState.initial());
 
-  void getCategories() async {
+  Future<void> getCategories() async {
     if (!state.isLoading) {
       final (categories, error) = await _getCategoriesUseCase(NoParams());
       emit(state.copyWith(categories: categories));
