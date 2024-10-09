@@ -4,6 +4,9 @@ import 'package:wendys_test/domain/repositories/menu/i_menu_repository.dart';
 
 Future<void> initRepositories() async {
   getIt.registerLazySingleton<IMenuRepository>(
-    () => MenuRepository(remoteDatasource: getIt()),
+    () => MenuRepository(
+      remoteDatasource: getIt(),
+      localDatasource: getIt(),
+    ),
   );
 }
