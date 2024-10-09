@@ -11,7 +11,6 @@ class GetCategoriesUseCase implements IUseCase<List<CategoryModel>, NoParams> {
 
   @override
   Future<(List<CategoryModel>, String?)> call(params) async {
-    final (menu, error) = await _repository.getMenu();
-    return (menu.menuLists.categories, error);
+    return await _repository.getCategoriesAndCacheData();
   }
 }
