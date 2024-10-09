@@ -1,0 +1,4 @@
+enum LocalStorageKeys {
+  categories,
+  menuItems,
+}

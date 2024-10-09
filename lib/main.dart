@@ -4,6 +4,7 @@ import 'package:wendys_test/presentation/pages/categories/categories_page.dart';
 import 'dependency_injection.dart' as dependency_injection;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await dependency_injection.init();
   runApp(const MyApp());
 }
