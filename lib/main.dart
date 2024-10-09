@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wendys_test/dependency_injection.dart';
+import 'package:wendys_test/presentation/cubit/cart/cart_cubit.dart';
 import 'package:wendys_test/presentation/pages/categories/categories_page.dart';
 
 import 'dependency_injection.dart' as dependency_injection;
@@ -14,12 +17,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        useMaterial3: true,
+    return BlocProvider(
+      create: (_) => getIt<CartCubit>(),
+      child: MaterialApp(
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+          useMaterial3: true,
+        ),
+        home: CategoriesPage(),
       ),
-      home: CategoriesPage(),
     );
   }
 }
