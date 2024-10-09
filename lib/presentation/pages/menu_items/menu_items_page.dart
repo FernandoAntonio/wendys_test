@@ -2,35 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wendys_test/data/models/category/category_model.dart';
 import 'package:wendys_test/dependency_injection.dart';
-import 'package:wendys_test/presentation/cubit/categories/categories_cubit.dart';
-import 'package:wendys_test/presentation/pages/menu_items/menu_items_page.dart';
+import 'package:wendys_test/presentation/cubit/menu_items/menu_items_cubit.dart';
 import 'package:wendys_test/presentation/pages/widgets/menu_item_widget.dart';
 
-class CategoriesPage extends StatefulWidget {
-  const CategoriesPage({super.key});
+class MenuItemsPage extends StatefulWidget {
+  final CategoryModel selectedCategory;
+
+  const MenuItemsPage({
+    super.key,
+    required this.selectedCategory,
+  });
 
   @override
-  State<CategoriesPage> createState() => _CategoriesPageState();
+  State<MenuItemsPage> createState() => _MenuItemsPageState();
 }
 
-class _CategoriesPageState extends State<CategoriesPage> {
-  late CategoriesCubit _cubit;
-
-  void _onMenuItemPressed(CategoryModel selectedCategory) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => MenuItemsPage(
-          selectedCategory: selectedCategory,
-        ),
-      ),
-    );
-  }
+class _MenuItemsPageState extends State<MenuItemsPage> {
+  late MenuItemsCubit _cubit;
 
   @override
   void initState() {
     super.initState();
-    _cubit = getIt<CategoriesCubit>();
-    _cubit.getCategories();
+    _cubit = getIt<MenuItemsCubit>();
+    _cubit.getMenuItemsById(widget.selectedCategory.menuItems);
   }
 
   @override
@@ -39,26 +33,24 @@ class _CategoriesPageState extends State<CategoriesPage> {
       create: (_) => _cubit,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Categories Page'),
+          title: Text(widget.selectedCategory.displayName),
         ),
-        body: BlocBuilder<CategoriesCubit, CategoriesState>(
+        body: BlocBuilder<MenuItemsCubit, MenuItemsState>(
           builder: (context, state) {
             return state.isLoading
                 ? Center(child: CircularProgressIndicator())
                 : GridView.builder(
-                    itemCount: state.categories.length,
+                    itemCount: state.menuItems.length,
                     padding: const EdgeInsets.all(20.0),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       crossAxisSpacing: 40.0,
                       mainAxisSpacing: 16.0,
+                      childAspectRatio: 0.9,
                     ),
                     itemBuilder: (context, index) {
-                      final category = state.categories.elementAt(index);
-                      return MenuItemWidget(
-                        displayName: category.displayName,
-                        onPressed: () => _onMenuItemPressed(category),
-                      );
+                      final category = state.menuItems.elementAt(index);
+                      return MenuItemWidget(displayName: category.displayName);
                     },
                   );
           },
