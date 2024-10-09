@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wendys_test/data/models/category/category_model.dart';
+import 'package:wendys_test/data/models/menu_item/menu_item_model.dart';
 import 'package:wendys_test/dependency_injection.dart';
 import 'package:wendys_test/presentation/cubit/menu_items/menu_items_cubit.dart';
+import 'package:wendys_test/presentation/pages/selected_menu_item/selected_menu_item_page.dart';
 import 'package:wendys_test/presentation/pages/widgets/menu_item_widget.dart';
 
 class MenuItemsPage extends StatefulWidget {
@@ -20,11 +22,22 @@ class MenuItemsPage extends StatefulWidget {
 class _MenuItemsPageState extends State<MenuItemsPage> {
   late MenuItemsCubit _cubit;
 
+  void _onMenuItemPressed(BuildContext context, MenuItemModel selectedMenuItem) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => SelectedMenuItemPage(
+          selectedMenuItem: selectedMenuItem,
+        ),
+      ),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
     _cubit = getIt<MenuItemsCubit>();
-    _cubit.getMenuItemsById(widget.selectedCategory.menuItems);
+    final menuItemsIds = widget.selectedCategory.menuItems;
+    _cubit.getMenuItemsById(menuItemsIds);
   }
 
   @override
@@ -49,8 +62,11 @@ class _MenuItemsPageState extends State<MenuItemsPage> {
                       childAspectRatio: 0.9,
                     ),
                     itemBuilder: (context, index) {
-                      final category = state.menuItems.elementAt(index);
-                      return MenuItemWidget(displayName: category.displayName);
+                      final menuItem = state.menuItems.elementAt(index);
+                      return MenuItemWidget(
+                        displayName: menuItem.displayName,
+                        onPressed: () => _onMenuItemPressed(context, menuItem),
+                      );
                     },
                   );
           },
