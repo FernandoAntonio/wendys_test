@@ -18,5 +18,6 @@ class MenuModel with _$MenuModel {
     );
   }
 
-  factory MenuModel.fromJson(Map<String, dynamic> json) => _$MenuModelFromJson(json);
+  factory MenuModel.fromJson(Map<String, dynamic> json) =>
+      _$MenuModelFromJson(json);
 }

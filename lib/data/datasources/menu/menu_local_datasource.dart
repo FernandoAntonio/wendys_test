@@ -21,7 +21,8 @@ class MenuLocalDatasource implements IMenuLocalDatasource {
 
   @override
   Future<List<CategoryModel>> getCachedCategories() async {
-    final String? categoriesString = await _localStorage.read(LocalStorageKeys.categories);
+    final String? categoriesString =
+        await _localStorage.read(LocalStorageKeys.categories);
 
     if (categoriesString != null) {
       final List categoriesJsonList = jsonDecode(categoriesString);
@@ -35,7 +36,8 @@ class MenuLocalDatasource implements IMenuLocalDatasource {
 
   @override
   Future<List<MenuItemModel>> getCachedMenuItems() async {
-    final String? menuItemsString = await _localStorage.read(LocalStorageKeys.menuItems);
+    final String? menuItemsString =
+        await _localStorage.read(LocalStorageKeys.menuItems);
 
     if (menuItemsString != null) {
       final List menuItemsJsonList = jsonDecode(menuItemsString);

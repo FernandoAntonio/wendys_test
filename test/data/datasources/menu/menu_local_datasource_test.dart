@@ -27,9 +27,11 @@ void main() {
     final menuItemsString = fixture('menu_items/menu_items_list');
 
     group('getCachedCategories', () {
-      test('should return a list of CategoryModel when the call is successful', () async {
+      test('should return a list of CategoryModel when the call is successful',
+          () async {
         // Arrange
-        when(mockLocalStorage.read(LocalStorageKeys.categories)).thenAnswer((_) async => categoriesString);
+        when(mockLocalStorage.read(LocalStorageKeys.categories))
+            .thenAnswer((_) async => categoriesString);
 
         // Act
         final result = await localDatasource.getCachedCategories();
@@ -39,9 +41,11 @@ void main() {
         verify(mockLocalStorage.read(LocalStorageKeys.categories)).called(1);
       });
 
-      test('should return an empty list when the call is unsuccessful', () async {
+      test('should return an empty list when the call is unsuccessful',
+          () async {
         // Arrange
-        when(mockLocalStorage.read(LocalStorageKeys.categories)).thenAnswer((_) async => null);
+        when(mockLocalStorage.read(LocalStorageKeys.categories))
+            .thenAnswer((_) async => null);
 
         // Act
         final result = await localDatasource.getCachedCategories();
@@ -53,9 +57,11 @@ void main() {
     });
 
     group('getCachedMenuItems', () {
-      test('should return a list of MenuItemModel when the call is successful', () async {
+      test('should return a list of MenuItemModel when the call is successful',
+          () async {
         // Arrange
-        when(mockLocalStorage.read(LocalStorageKeys.menuItems)).thenAnswer((_) async => menuItemsString);
+        when(mockLocalStorage.read(LocalStorageKeys.menuItems))
+            .thenAnswer((_) async => menuItemsString);
 
         // Act
         final result = await localDatasource.getCachedMenuItems();
@@ -65,9 +71,11 @@ void main() {
         verify(mockLocalStorage.read(LocalStorageKeys.menuItems)).called(1);
       });
 
-      test('should return an empty list when the call is unsuccessful', () async {
+      test('should return an empty list when the call is unsuccessful',
+          () async {
         // Arrange
-        when(mockLocalStorage.read(LocalStorageKeys.menuItems)).thenAnswer((_) async => null);
+        when(mockLocalStorage.read(LocalStorageKeys.menuItems))
+            .thenAnswer((_) async => null);
 
         // Act
         final result = await localDatasource.getCachedMenuItems();
@@ -79,7 +87,8 @@ void main() {
     });
 
     group('storeCategories', () {
-      test('should write the correct data in local storage when successful', () async {
+      test('should write the correct data in local storage when successful',
+          () async {
         // Act
         await localDatasource.storeCategories(mockCategoriesModelList);
 
@@ -92,7 +101,8 @@ void main() {
     });
 
     group('storeMenuItems', () {
-      test('should write the correct data in local storage when successful', () async {
+      test('should write the correct data in local storage when successful',
+          () async {
         // Act
         await localDatasource.storeMenuItems(mockMenuItemsModelList);
 

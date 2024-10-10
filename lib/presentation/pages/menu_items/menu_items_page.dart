@@ -23,7 +23,8 @@ class MenuItemsPage extends StatefulWidget {
 class _MenuItemsPageState extends State<MenuItemsPage> {
   late MenuItemsCubit _cubit;
 
-  void _onMenuItemPressed(BuildContext context, MenuItemModel selectedMenuItem) {
+  void _onMenuItemPressed(
+      BuildContext context, MenuItemModel selectedMenuItem) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => SelectedMenuItemPage(

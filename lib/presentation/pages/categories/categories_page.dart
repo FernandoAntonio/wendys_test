@@ -17,7 +17,8 @@ class CategoriesPage extends StatefulWidget {
 class _CategoriesPageState extends State<CategoriesPage> {
   late CategoriesCubit _cubit;
 
-  void _onMenuItemPressed(BuildContext context, CategoryModel selectedCategory) {
+  void _onMenuItemPressed(
+      BuildContext context, CategoryModel selectedCategory) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => MenuItemsPage(selectedCategory: selectedCategory),

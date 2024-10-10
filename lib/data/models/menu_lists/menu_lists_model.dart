@@ -22,5 +22,6 @@ class MenuListsModel with _$MenuListsModel {
     );
   }
 
-  factory MenuListsModel.fromJson(Map<String, dynamic> json) => _$MenuListsModelFromJson(json);
+  factory MenuListsModel.fromJson(Map<String, dynamic> json) =>
+      _$MenuListsModelFromJson(json);
 }

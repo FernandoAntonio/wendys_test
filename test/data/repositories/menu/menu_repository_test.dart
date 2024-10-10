@@ -12,7 +12,8 @@ import '../../../fixtures/menu/menu_model_mock.dart';
 import '../../../fixtures/menu_items/menu_items_model_list_mock.dart';
 import 'menu_repository_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<IMenuLocalDatasource>(), MockSpec<IMenuRemoteDatasource>()])
+@GenerateNiceMocks(
+    [MockSpec<IMenuLocalDatasource>(), MockSpec<IMenuRemoteDatasource>()])
 void main() {
   late IMenuLocalDatasource mockLocalDatasource;
   late IMenuRemoteDatasource mockRemoteDatasource;
@@ -31,9 +32,12 @@ void main() {
     final error = Exception('Error Message');
 
     group('getCategoriesAndCacheData', () {
-      test('should return a list of cached CategoryModel when there\'s chached data', () async {
+      test(
+          'should return a list of cached CategoryModel when there\'s chached data',
+          () async {
         // Arrange
-        when(mockLocalDatasource.getCachedCategories()).thenAnswer((_) async => mockCategoriesModelList);
+        when(mockLocalDatasource.getCachedCategories())
+            .thenAnswer((_) async => mockCategoriesModelList);
 
         // Act
         final result = await repository.getCategoriesAndCacheData();
@@ -43,7 +47,8 @@ void main() {
         verify(mockLocalDatasource.getCachedCategories()).called(1);
       });
 
-      test('should return a list of CategoryModel when call is successful', () async {
+      test('should return a list of CategoryModel when call is successful',
+          () async {
         // Arrange
         var firstCall = true;
         when(mockLocalDatasource.getCachedCategories()).thenAnswer((_) async {
@@ -53,7 +58,8 @@ void main() {
           }
           return mockCategoriesModelList;
         });
-        when(mockRemoteDatasource.getMenu()).thenAnswer((_) async => mockMenuModel);
+        when(mockRemoteDatasource.getMenu())
+            .thenAnswer((_) async => mockMenuModel);
 
         // Act
         final result = await repository.getCategoriesAndCacheData();
@@ -62,8 +68,10 @@ void main() {
         expect(result, (mockCategoriesModelList, null));
         verify(mockRemoteDatasource.getMenu()).called(1);
         verify(mockLocalDatasource.getCachedCategories()).called(2);
-        verify(mockLocalDatasource.storeCategories(mockCategoriesModelList)).called(1);
-        verify(mockLocalDatasource.storeMenuItems(mockMenuItemsModelList)).called(1);
+        verify(mockLocalDatasource.storeCategories(mockCategoriesModelList))
+            .called(1);
+        verify(mockLocalDatasource.storeMenuItems(mockMenuItemsModelList))
+            .called(1);
       });
 
       test('should return an empty list when call is unsuccessful', () async {
@@ -84,9 +92,12 @@ void main() {
     });
 
     group('getMenuItems', () {
-      test('should return a list of cached MenuItemModel when call is successful', () async {
+      test(
+          'should return a list of cached MenuItemModel when call is successful',
+          () async {
         // Arrange
-        when(mockLocalDatasource.getCachedMenuItems()).thenAnswer((_) async => mockMenuItemsModelList);
+        when(mockLocalDatasource.getCachedMenuItems())
+            .thenAnswer((_) async => mockMenuItemsModelList);
 
         // Act
         final result = await repository.getMenuItems();

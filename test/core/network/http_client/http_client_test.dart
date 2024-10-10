@@ -30,7 +30,8 @@ void main() {
     final headers = {'Content-Type': 'application/json'};
     final responseBody = '{"key": "value"}';
 
-    test('should return a HttpResponse when the GET request is successful', () async {
+    test('should return a HttpResponse when the GET request is successful',
+        () async {
       // Arrange
       final request = HttpRequest(path: '/test', method: HttpMethod.get);
 
@@ -47,7 +48,8 @@ void main() {
       expect(response.bodyBytes, utf8.encode(responseBody));
     });
 
-    test('should return a HttpResponse when the POST request is successful', () async {
+    test('should return a HttpResponse when the POST request is successful',
+        () async {
       // Arrange
       final request = HttpRequest(path: '/test', method: HttpMethod.post);
 
@@ -64,7 +66,8 @@ void main() {
       expect(response.bodyBytes, utf8.encode(responseBody));
     });
 
-    test('should return a HttpResponse when the PUT request is successful', () async {
+    test('should return a HttpResponse when the PUT request is successful',
+        () async {
       // Arrange
       final request = HttpRequest(path: '/test', method: HttpMethod.put);
 
@@ -81,7 +84,8 @@ void main() {
       expect(response.bodyBytes, utf8.encode(responseBody));
     });
 
-    test('should return a HttpResponse when the PATCH request is successful', () async {
+    test('should return a HttpResponse when the PATCH request is successful',
+        () async {
       // Arrange
       final request = HttpRequest(path: '/test', method: HttpMethod.patch);
 
@@ -98,7 +102,8 @@ void main() {
       expect(response.bodyBytes, utf8.encode(responseBody));
     });
 
-    test('should return a HttpResponse when the DELETE request is successful', () async {
+    test('should return a HttpResponse when the DELETE request is successful',
+        () async {
       // Arrange
       final request = HttpRequest(path: '/test', method: HttpMethod.delete);
 
@@ -121,7 +126,8 @@ void main() {
       when(mockHttpClient.get(any)).thenThrow(error);
 
       // Act & Assert
-      expect(() async => await httpClient.sendRequest(request), throwsException);
+      expect(
+          () async => await httpClient.sendRequest(request), throwsException);
     });
   });
 }
