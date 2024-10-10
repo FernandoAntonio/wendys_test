@@ -23,7 +23,7 @@ void main() {
 
   group('MenuRemoteDatasource', () {
     final headers = {'Content-Type': 'application/json'};
-    final mockMenuString = fixture('menu');
+    final mockMenuString = fixture('menu/menu');
 
     group('getMenu', () {
       test('should return a MenuModel when the call is successful', () async {

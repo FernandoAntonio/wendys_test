@@ -7,9 +7,9 @@ import 'package:wendys_test/data/datasources/menu/menu_local_datasource.dart';
 import 'package:wendys_test/data/models/category/category_model.dart';
 import 'package:wendys_test/data/models/menu_item/menu_item_model.dart';
 
-import '../../../fixtures/categories/categories_model_list.dart';
+import '../../../fixtures/categories/categories_model_list_mock.dart';
 import '../../../fixtures/fixture_reader.dart';
-import '../../../fixtures/menu_items/menu_items_model_list.dart';
+import '../../../fixtures/menu_items/menu_items_model_list_mock.dart';
 import 'menu_local_datasource_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<ILocalStorage>()])
@@ -81,12 +81,12 @@ void main() {
     group('storeCategories', () {
       test('should write the correct data in local storage when successful', () async {
         // Act
-        await localDatasource.storeCategories(categoriesModelList);
+        await localDatasource.storeCategories(mockCategoriesModelList);
 
         // Assert
         verify(mockLocalStorage.write(
           LocalStorageKeys.categories,
-          categoriesModelString,
+          mockCategoriesModelString,
         )).called(1);
       });
     });
@@ -94,12 +94,12 @@ void main() {
     group('storeMenuItems', () {
       test('should write the correct data in local storage when successful', () async {
         // Act
-        await localDatasource.storeMenuItems(menuItemsModelList);
+        await localDatasource.storeMenuItems(mockMenuItemsModelList);
 
         // Assert
         verify(mockLocalStorage.write(
           LocalStorageKeys.menuItems,
-          menuItemsModelString,
+          mockMenuItemsModelString,
         )).called(1);
       });
     });
