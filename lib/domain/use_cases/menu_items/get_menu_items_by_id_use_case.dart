@@ -14,7 +14,7 @@ class GetMenuItemsByIdUseCase
   Future<(List<MenuItemModel>, String?)> call(params) async {
     final (allMenuItems, error) = await _repository.getMenuItems();
 
-    if (error != null) return (<MenuItemModel>[], null);
+    if (error != null) return (<MenuItemModel>[], error);
 
     final filteredMenuItems =
         allMenuItems.where((e) => params.contains(e.menuItemId)).toList();
