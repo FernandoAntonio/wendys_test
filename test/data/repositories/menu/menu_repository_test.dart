@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wendys_test/data/datasources/menu/menu_local_datasource.dart';
 import 'package:wendys_test/data/datasources/menu/menu_remote_datasource.dart';
@@ -10,10 +9,8 @@ import 'package:wendys_test/data/repositories/menu/menu_repository.dart';
 import '../../../fixtures/categories/categories_model_list_mock.dart';
 import '../../../fixtures/menu/menu_model_mock.dart';
 import '../../../fixtures/menu_items/menu_items_model_list_mock.dart';
-import 'menu_repository_test.mocks.dart';
+import '../../../mocks/mocks.mocks.dart';
 
-@GenerateNiceMocks(
-    [MockSpec<IMenuLocalDatasource>(), MockSpec<IMenuRemoteDatasource>()])
 void main() {
   late IMenuLocalDatasource mockLocalDatasource;
   late IMenuRemoteDatasource mockRemoteDatasource;

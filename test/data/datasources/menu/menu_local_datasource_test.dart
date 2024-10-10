@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wendys_test/core/local_storage/entities/local_storage_keys.dart';
 import 'package:wendys_test/core/local_storage/local_storage.dart';
@@ -10,9 +9,8 @@ import 'package:wendys_test/data/models/menu_item/menu_item_model.dart';
 import '../../../fixtures/categories/categories_model_list_mock.dart';
 import '../../../fixtures/fixture_reader.dart';
 import '../../../fixtures/menu_items/menu_items_model_list_mock.dart';
-import 'menu_local_datasource_test.mocks.dart';
+import '../../../mocks/mocks.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<ILocalStorage>()])
 void main() {
   late ILocalStorage mockLocalStorage;
   late MenuLocalDatasource localDatasource;

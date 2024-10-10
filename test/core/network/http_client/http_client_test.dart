@@ -2,16 +2,14 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wendys_test/core/network/http_client/entities/http_methods.dart';
 import 'package:wendys_test/core/network/http_client/entities/http_options.dart';
 import 'package:wendys_test/core/network/http_client/entities/http_request.dart';
 import 'package:wendys_test/core/network/http_client/http_client.dart';
 
-import 'http_client_test.mocks.dart';
+import '../../../mocks/mocks.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<http.Client>()])
 void main() {
   late DefaultHttpClient httpClient;
   late MockClient mockHttpClient;

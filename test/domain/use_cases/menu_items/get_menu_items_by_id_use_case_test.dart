@@ -1,16 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:wendys_test/data/models/menu_item/menu_item_model.dart';
-import 'package:wendys_test/domain/repositories/menu/i_menu_repository.dart';
 import 'package:wendys_test/domain/use_cases/menu_items/get_menu_items_by_id_use_case.dart';
 
 import '../../../fixtures/categories/category_model_hamburger.dart';
 import '../../../fixtures/menu_items/menu_items_model_hamburgers.dart';
 import '../../../fixtures/menu_items/menu_items_model_list_mock.dart';
-import 'get_menu_items_by_id_use_case_test.mocks.dart';
+import '../../../mocks/mocks.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<IMenuRepository>()])
 void main() {
   late MockIMenuRepository mockMenuRepository;
   late GetMenuItemsByIdUseCase useCase;
