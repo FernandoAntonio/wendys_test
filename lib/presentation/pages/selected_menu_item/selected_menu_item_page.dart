@@ -51,7 +51,7 @@ class SelectedMenuItemPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(selectedMenuItem.displayName),
         actions: [
-          CartWidget(),
+          CartWidget(key: Key('cart_widget')),
         ],
       ),
       body: Padding(
