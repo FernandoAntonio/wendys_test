@@ -38,6 +38,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
     return BlocProvider(
       create: (_) => _cubit,
       child: Scaffold(
+        key: Key('categories_page'),
         appBar: AppBar(
           title: Text('Categories Page'),
           actions: [

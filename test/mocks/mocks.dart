@@ -8,6 +8,9 @@ import 'package:wendys_test/data/datasources/menu/menu_remote_datasource.dart';
 import 'package:wendys_test/domain/repositories/menu/i_menu_repository.dart';
 import 'package:wendys_test/domain/use_cases/categories/get_categories_use_case.dart';
 import 'package:wendys_test/domain/use_cases/menu_items/get_menu_items_by_id_use_case.dart';
+import 'package:wendys_test/presentation/cubit/cart/cart_cubit.dart';
+import 'package:wendys_test/presentation/cubit/categories/categories_cubit.dart';
+import 'package:wendys_test/presentation/cubit/menu_items/menu_items_cubit.dart';
 
 @GenerateNiceMocks([
   MockSpec<IMenuRepository>(),
@@ -19,5 +22,8 @@ import 'package:wendys_test/domain/use_cases/menu_items/get_menu_items_by_id_use
   MockSpec<IHttpClient>(),
   MockSpec<GetCategoriesUseCase>(),
   MockSpec<GetMenuItemsByIdUseCase>(),
+  MockSpec<CategoriesCubit>(),
+  MockSpec<MenuItemsCubit>(),
+  MockSpec<CartCubit>(),
 ])
 void main() {}
