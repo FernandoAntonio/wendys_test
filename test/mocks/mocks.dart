@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,5 +26,6 @@ import 'package:wendys_test/presentation/cubit/menu_items/menu_items_cubit.dart'
   MockSpec<CategoriesCubit>(),
   MockSpec<MenuItemsCubit>(),
   MockSpec<CartCubit>(),
+  MockSpec<NavigatorObserver>(),
 ])
 void main() {}

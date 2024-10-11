@@ -76,7 +76,7 @@ void main() {
   );
 
   testWidgets(
-    'displays categories when state is loaded',
+    'displays menuItems when state is loaded',
     (WidgetTester tester) async {
       arrangeCubitState(
         menuItemsState: MenuItemsState(
@@ -104,7 +104,7 @@ void main() {
   );
 
   testWidgets(
-    'navigates to MenuItemsPage when category is tapped',
+    'navigates to SelectedMenuItemPage when category is tapped',
     (WidgetTester tester) async {
       arrangeCubitState(
         menuItemsState: MenuItemsState(

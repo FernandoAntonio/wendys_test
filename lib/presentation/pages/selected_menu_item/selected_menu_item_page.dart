@@ -27,6 +27,17 @@ class SelectedMenuItemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final regularTextStyle = TextStyle(
+      color: Colors.black,
+      fontSize: 20.0,
+    );
+
+    final boldTextStyle = TextStyle(
+      color: Colors.black,
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+    );
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () => _onFABPressed(context),
@@ -45,32 +56,45 @@ class SelectedMenuItemPage extends StatelessWidget {
       ),
       body: Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 36.0, 16.0, 16.0),
-          child: RichText(
-            text: TextSpan(
-              style: TextStyle(color: Colors.black, fontSize: 20.0),
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Name: ',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Name: ', style: boldTextStyle),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text(
+                  selectedMenuItem.displayName,
+                  style: regularTextStyle,
                 ),
-                TextSpan(text: '${selectedMenuItem.displayName}\n\n'),
-                TextSpan(
-                  text: 'Description: ',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 16.0),
+              Text('Description: ', style: boldTextStyle),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text(
+                  selectedMenuItem.description,
+                  style: regularTextStyle,
                 ),
-                TextSpan(text: '${selectedMenuItem.description}\n\n'),
-                TextSpan(
-                  text: 'Calories: ',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 16.0),
+              Text('Calories: ', style: boldTextStyle),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text(
+                  selectedMenuItem.calorieRange,
+                  style: regularTextStyle,
                 ),
-                TextSpan(text: '${selectedMenuItem.calorieRange}\n\n'),
-                TextSpan(
-                  text: 'Price: ',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 16.0),
+              Text('Price: ', style: boldTextStyle),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text(
+                  selectedMenuItem.priceRange,
+                  style: regularTextStyle,
                 ),
-                TextSpan(text: selectedMenuItem.priceRange),
-              ],
-            ),
+              ),
+            ],
           )),
     );
   }

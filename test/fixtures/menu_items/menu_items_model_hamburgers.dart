@@ -1,5 +1,15 @@
 import 'package:wendys_test/data/models/menu_item/menu_item_model.dart';
 
+final mockMenuItemBaconator = MenuItemModel(
+  menuItemId: 30003,
+  displayName: 'Baconator®',
+  name: 'Baconator®',
+  description:
+      'A half-pound* of fresh beef, American cheese, 6 pieces of crispy Applewood smoked bacon, ketchup, and mayo. Carnivores rejoice!',
+  priceRange: '\$5.89',
+  calorieRange: '960 Cal',
+);
+
 final mockMenuItemsHamburgers = [
   MenuItemModel(
     menuItemId: 30000,
