@@ -64,7 +64,7 @@ class _MenuItemsPageState extends State<MenuItemsPage> {
                       crossAxisCount: 3,
                       crossAxisSpacing: 40.0,
                       mainAxisSpacing: 16.0,
-                      childAspectRatio: 0.9,
+                      childAspectRatio: 0.8,
                     ),
                     itemBuilder: (context, index) {
                       final menuItem = state.menuItems.elementAt(index);

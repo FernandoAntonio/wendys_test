@@ -56,6 +56,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                       crossAxisCount: 3,
                       crossAxisSpacing: 40.0,
                       mainAxisSpacing: 16.0,
+                      childAspectRatio: 0.8,
                     ),
                     itemBuilder: (context, index) {
                       final category = state.categories.elementAt(index);
